@@ -1,0 +1,886 @@
+export type Category = "Construcción" | "Refrigeración";
+
+export type Categories = {
+  Refrigeración: string[];
+  Construcción: string[];
+};
+
+export const categories: Categories = {
+  Construcción: ["Techos y Cubiertas", "Paredes y Muros", "Pisos y Entrepisos"],
+  Refrigeración: [
+    "Cámaras frigoríficas",
+    "Puertas y portones",
+    "Túneles de Congelado",
+    "Equipos comerciales",
+    "Equipos industriales",
+    "Minicentrales frigoríficas",
+    "Centrales Multicompresoras",
+    "Chiller",
+  ],
+} as const;
+
+type RefrigeraciónSubcategory = (typeof categories.Refrigeración)[number];
+type ConstrucciónSubcategory = (typeof categories.Construcción)[number];
+
+export interface ProductBase {
+  id: number;
+  category: Category;
+  title: string;
+  description: string;
+  useCases: string;
+  features: string[];
+  shaped: string | null;
+  colors: string | null;
+  cores: string[] | null;
+  thickness: string | null;
+  bimBlock: string[] | null;
+  technicalSheet: string[] | null;
+  productImages: string[] | null;
+  inSituationImages: string[] | null;
+}
+
+export interface RefrigeraciónProduct extends ProductBase {
+  category: "Refrigeración";
+  subcategory: RefrigeraciónSubcategory;
+}
+
+export interface ConstrucciónProduct extends ProductBase {
+  category: "Construcción";
+  subcategory: ConstrucciónSubcategory;
+}
+
+export type Product = RefrigeraciónProduct | ConstrucciónProduct;
+
+export const products: Product[] = [
+  {
+    id: 1,
+    category: "Construcción",
+    subcategory: "Techos y Cubiertas",
+    title: "Foilroof - Trapezoidal",
+    description:
+      "Panel metálico con diferentes núcleos aislantes. Con cara superior conformada de láminas de acero prepintado o cincalum y cara inferior en foil de polipropileno de alta resistencia. Utilizable en cubiertas y revestimientos de muros de edificaciones industriales, comerciales y residenciales. Pendiente mínima recomendada del 5%.",
+    useCases: "Muro constructivo/Cubierta",
+    features: [
+      "Lámina de acero",
+      "Alta resistencia",
+      "Solape de crestas",
+      "Aislación térmica",
+      "Excelente reflectividad a la luz",
+      "Fácil montaje",
+      "Rápida instalación",
+      "Ideal para cubiertas con cieloraso",
+    ],
+    shaped: "Trapezoidal",
+    colors: "Negro, Gris Pizarra, Blanco, Cincalum, Galvanizado",
+    cores: ["PIR"],
+    thickness: "10mm, 30mm y 50mm",
+    bimBlock: [
+      "https://grupoltn.com/productos-bim/Foilroof_Trapezoidal_Pir_Pur_LTN.rar",
+    ],
+    technicalSheet: [
+      "/fichas/techos-cubiertas/Foilroof-LTN-Trapezoidal_compressed.pdf",
+    ],
+    productImages: [
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_01.jpg",
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_02.jpg",
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_03.jpg",
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_04.jpg",
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_05.jpg",
+      "/images/products/Foilroof/trapezoidal/Foilroof-Trape_06.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_01.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_02.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_03.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_04.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_05.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_06.jpg",
+    ],
+  },
+  {
+    id: 2,
+    category: "Construcción",
+    subcategory: "Techos y Cubiertas",
+    title: "Foilroof - Sinusoidal",
+    description:
+      "Panel metálico con diferentes núcleos aislantes. Con cara superior conformada de láminas de acero prepintado o cincalum y cara inferior en foil de polipropileno de alta resistencia. Utilizable en cubiertas y revestimientos de muros de edificaciones industriales, comerciales y residenciales. Pendiente mínima recomendada del 5%.",
+    useCases: "Muro constructivo/Cubierta",
+    features: [
+      "Lámina de acero",
+      "Alta resistencia",
+      "Solape de crestas",
+      "Aislación térmica",
+      "Excelente reflectividad a la luz",
+      "Fácil montaje",
+      "Rápida instalación",
+      "Ideal para cubiertas con cieloraso",
+    ],
+    shaped: "Sinusoidal",
+    colors: "Negro, Gris Pizarra, Blanco, Cincalum, Galvanizado",
+    cores: ["PIR"],
+    thickness: "10mm, 30mm y 50mm",
+    bimBlock: [
+      "https://grupoltn.com/productos-bim/Foilroof_Sinusoidal_Pir_Pur_LTN.rar",
+    ],
+    technicalSheet: [
+      "/fichas/techos-cubiertas/Foilroof-LTN-Sinusoidal_compressed.pdf",
+    ],
+    productImages: [
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 01.jpg",
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 02.jpg",
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 03.jpg",
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 04.jpg",
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 05.jpg",
+      "/images/products/Foilroof/sinusoidal/FOILROOF-SINU 06.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_01.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_02.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_03.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_04.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_05.jpg",
+      "/images/products/Foilroof/inSituationImages/Foilroof-Trape_06.jpg",
+    ],
+  },
+  {
+    id: 3,
+    category: "Construcción",
+    subcategory: "Techos y Cubiertas",
+    title: "Tejatech",
+    description:
+      "Panel metálico con diferentes núcleos aislantes. Conformado con cara superior tipo TEJA FRANCESA en láminas de acero prepintado o cincalum, y cara inferior en foil de polipropileno de alta resistencia. Utilizable en cubiertas de edificaciones industriales, comerciales y residenciales. Pendiente mínima recomendada del 5%.",
+    useCases: "Techos y Cubiertas",
+    features: [
+      "Solape de crestas",
+      "Fácil y rápido montaje",
+      "Aislación térmica",
+      "Para recambio de teja existente u obra nueva",
+      "Alta resistencia climática",
+    ],
+    shaped: "Teja francesa",
+    colors: "Negro, Marrón Cobre",
+    cores: ["PIR"],
+    thickness: "50 mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Tejatech_LTN.rar"],
+    technicalSheet: ["/fichas/techos-cubiertas/tejatech.pdf"],
+    productImages: [
+      "/images/products/Tejatech/productImages/TEJA-1.jpg",
+      "/images/products/Tejatech/productImages/TEJA-2.jpg",
+      "/images/products/Tejatech/productImages/TEJA-3.jpg",
+      "/images/products/Tejatech/productImages/TEJA-4.jpg",
+      "/images/products/Tejatech/productImages/TEJA-5.jpg",
+      "/images/products/Tejatech/productImages/TEJA-6.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Tejatech/inSituationImages/TEJA-1.jpg",
+      "/images/products/Tejatech/inSituationImages/TEJA-2.jpg",
+      "/images/products/Tejatech/inSituationImages/TEJA-3.jpg",
+      "/images/products/Tejatech/inSituationImages/TEJA-4.jpg",
+      "/images/products/Tejatech/inSituationImages/TEJA-5.jpg",
+      "/images/products/Tejatech/inSituationImages/TEJA-6.jpg",
+    ],
+  },
+  {
+    id: 4,
+    category: "Construcción",
+    subcategory: "Techos y Cubiertas",
+    title: "Maxiroof",
+    description:
+      "Panel metálico con diferentes núcleos aislantes. Conformado con cara superior trapezoidal, en lámina de acero galvanizado/prepintado/cincalum. Cara inferior en lámina de acero galvanizado/prepintado, tableteado. Utilizable para cubiertas y revestimientos en muros de edificaciones industriales, comerciales y residenciales. Pendiente mínima recomendada del 5%. Apto para fachadas por la rigidez que le proporcionan sus nervaduras.",
+    useCases: "Muro constructivo/ Cubierta",
+    features: [
+      "Alta resistencia",
+      "Revestimiento, aislación y cielorraso en un solo producto",
+      "Puede usarse en sentido horizontal o vertical",
+      "Facil montaje",
+      "Rápida instalación",
+      "Solape de crestas",
+    ],
+    shaped: "Exterior trapezoidal, interior tableteado",
+    colors:
+      "Colores Externos: Negro, Gris Silver, Gris Pizarra, Blanco, Cincalum, Galvanizado. Colores Internos: Gris Pizarra, Blanco",
+    cores: ["PIR", "EPS"],
+    thickness: "30mm, 50mm y 80mm",
+    bimBlock: [
+      "https://grupoltn.com/productos-bim/Maxiroof_Eps_LTN.rar",
+      "https://grupoltn.com/productos-bim/Maxiroof_Pir_Pur_LTN.rar",
+    ],
+    technicalSheet: [
+      "/fichas/techos-cubiertas/maxiroof_eps-1.pdf",
+      "/fichas/techos-cubiertas/maxiroof_pir.pdf",
+    ],
+    productImages: [
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 012.jpg",
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 13.jpg",
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 14.jpg",
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 15.jpg",
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 16.jpg",
+      "/images/products/Maxiroof/productImages/Maxiroof_FOILROOF-trape copia 18.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 12.jpg",
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 13.jpg",
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 14.jpg",
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 15.jpg",
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 16.jpg",
+      "/images/products/Maxiroof/inSituationImages/Maxiroof_FOILROOF-trape copia 18.jpg",
+    ],
+  },
+  {
+    id: 5,
+    category: "Construcción",
+    subcategory: "Techos y Cubiertas",
+    title: "Igniroof",
+    description:
+      "Panel resistente al fuego, Con nucleo de Lana de Roca Mineral. Con ambas caras de acero galvanizado prepintado, con posibilidad de optar por la cara exterior con terminación galvanizada. En la opción del panel tipo Sound, cara interior con terminación microperforada. Producto apto para ser utilizado tanto en cubiertas como en cerramientos verticales por la elevada rigidez que le proporcionan sus crestas. Recomendado para edificaciones industriales y comerciales, entre otras.",
+    useCases: "Cubiertas y fachadas",
+    features: [
+      "Aislación acústica",
+      "Aislación térmica",
+      "Instalación rápida y simple",
+      "Excelente comportamiento estructural",
+    ],
+    shaped: "exterior trapezoidal. interior tableteado o microperforado",
+    colors: "Colores Externos: Blanco, Cincalum, Color Interno: Blanco",
+    cores: ["LRM"],
+    thickness: "80mm y 100mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Igniroof_LRM_LTN.rar"],
+    technicalSheet: ["/fichas/techos-cubiertas/Igniroof-LRM_compressed.pdf"],
+    productImages: [
+      "/images/products/Igniroof/productImages/Igniroof_FOILROOF-trape copia 17.jpg",
+      "/images/products/Igniroof/productImages/Igniroof_FOILROOF-trape copia 19.jpg",
+      "/images/products/Igniroof/productImages/Igniroof_FOILROOF-trape copia 20.jpg",
+      "/images/products/Igniroof/productImages/Igniroof_FOILROOF-trape copia 21.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Igniroof/inSituationImages/Igniroof_FOILROOF-trape copia 17.jpg",
+      "/images/products/Igniroof/inSituationImages/Igniroof_FOILROOF-trape copia 19.jpg",
+      "/images/products/Igniroof/inSituationImages/Igniroof_FOILROOF-trape copia 20.jpg",
+      "/images/products/Igniroof/inSituationImages/Igniroof_FOILROOF-trape copia 21.jpg",
+    ],
+  },
+  {
+    id: 6,
+    category: "Construcción",
+    subcategory: "Paredes y Muros",
+    title: "Classwall",
+    description:
+      "Panel metálico con diferentes núcleos aislantes, revestido en ambas caras con lámina de acero galvanizado prepintado. Provisto con sistema de fijación oculta, se pueden instalar de forma vertical u horizontal. Ideal para obras que requieren soluciones de aislación y estética. Para aplicaciones arquitectónicas, destinado a revestimientos de edificios industriales, comerciales, residenciales, construcciones modulares y obras en general.",
+    useCases: "Muro constructivo",
+    features: [
+      "Lámina de acero galvanizado prepintado",
+      "Encastre oculto",
+      "Excelente acabado interior exterior",
+      "Compatible con diferentes sistemas constructivos",
+      "Solución de aislación y estética en un solo producto",
+    ],
+    shaped: "exterior micronervado, tableteado, interior tableteado.",
+    colors:
+      "Colores Externos: Negro, Gris Silver, Gris Pizarra, Blanco, Cincalum      Colores Internos: Negro, Gris Pizarra, Blanco, Cincalum",
+    cores: ["PIR"],
+    thickness: "40mm y 50mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Classwall_Pur_Pir_LTN.rar"],
+    technicalSheet: ["/fichas/paredes-muros/Classwall-PIR.pdf"],
+    productImages: [
+      "/images/products/Classwall/productImages/Classwall_01.jpg",
+      "/images/products/Classwall/productImages/Classwall_2.jpg",
+      "/images/products/Classwall/productImages/Classwall_3.jpg",
+      "/images/products/Classwall/productImages/Classwall_4.jpg",
+      "/images/products/Classwall/productImages/Classwall_5.jpg",
+      "/images/products/Classwall/productImages/Classwall_6.jpg",
+      "/images/products/Classwall/productImages/Classwall_7.jpg",
+      "/images/products/Classwall/productImages/Classwall_8.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Classwall/inSituationImages/Classwall_1.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_2.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_3.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_4.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_5.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_6.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_7.jpg",
+      "/images/products/Classwall/inSituationImages/Classwall_8.jpg",
+    ],
+  },
+  {
+    id: 7,
+    category: "Construcción",
+    subcategory: "Paredes y Muros",
+    title: "Megacold",
+    description:
+      "Panel metálico con diferentes núcleos aislantes, revestido en ambas caras con lámina de acero galvanizado prepintado, recomendado para cámaras y almacenes frigoríficos.",
+    useCases: "Muro frigorífico/Muro constructivo",
+    features: [
+      "Excelente acabado exterior e interior",
+      "Bajo peso y fácil instalación",
+      "Flexibilidad para reubicar paneles o ampliar cámaras",
+      "Altos estandares de asepsia",
+      "Aislación térmica",
+    ],
+    shaped: "exterior  e interior micronervado, tableteado.",
+    colors:
+      "Colores Externos: Gris Silver, Gris Pizarra, Blanco, Cincalum     Color Interno: Blanco",
+    cores: ["PIR"],
+    thickness: "30mm, 50mm, 60mm,100mm y 150mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Megacold_Pir_Pur_LTN.rar"],
+    technicalSheet: ["/fichas/paredes-muros/Megacold-PIR.pdf"],
+    productImages: [
+      "/images/products/Megacold/productImages/Megacold-40.jpg",
+      "/images/products/Megacold/productImages/Megacold-41.jpg",
+      "/images/products/Megacold/productImages/Megacold-42.jpg",
+      "/images/products/Megacold/productImages/Megacold-43.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Megacold/inSituationImages/Megacold-40.jpg",
+      "/images/products/Megacold/inSituationImages/Megacold-41.jpg",
+      "/images/products/Megacold/inSituationImages/Megacold-42.jpg",
+      "/images/products/Megacold/inSituationImages/Megacold-43.jpg",
+    ],
+  },
+  {
+    id: 8,
+    category: "Construcción",
+    subcategory: "Paredes y Muros",
+    title: "Frigocold",
+    description:
+      "Panel metálico con núcleos aislantes de EPS, revestido en ambas caras con lámina de acero galvanizado prepintado, recomendado para cámaras y almacenes frigoríficos.",
+    useCases: "Muro frigorífico/Muro constructivo",
+    features: [
+      "Excelente acabado exterior e interior",
+      "Bajo peso y fácil instalación",
+      "Flexibilidad para reubicar paneles o ampliar cámaras",
+      "Altos estandares de asepsia",
+      "Aislación térmica y acústica",
+    ],
+    shaped: "exterior e interior micronervado o tableteado.",
+    colors:
+      "Colores Externos: Blanco, Cincalum, Plástico reforzado en fibra de vidrio         Colores Internos: Blanco",
+    cores: ["EPS"],
+    thickness: "50mm, 80mm y 100mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Megacold_Pir_Pur_LTN.rar"],
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Frigocold/productImages/Megacold EPS LTN-1.png",
+      "/images/products/Frigocold/productImages/Megacold EPS LTN-2.png",
+      "/images/products/Frigocold/productImages/Megacold EPS LTN-4.png",
+      "/images/products/Frigocold/productImages/Megacold EPS LTN-5.png",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 9,
+    category: "Construcción",
+    subcategory: "Paredes y Muros",
+    title: "Ignicold",
+    description:
+      "Panel resistente al fuego, con recubrimiento en ambas caras de acero galvanizado prepintado, con la posibilidad de optar por la cara exterior galvanizada. En la opción de panel tipo sound, cara interior con terminación microperforada. Producto apto para fachadas y divisiones interiores, recomendado para edificaciones industriales, comerciales, cámaras de sonido, cines, entre otras.",
+    useCases: "Muros y fachadas constructivas",
+    features: [
+      "Aislación acústica",
+      "Aislación térmica",
+      "Alto estandar en asepsia",
+      "Revestimiento, aislación y cielorraso en un solo producto",
+    ],
+    shaped: "exterior trapezoidal. interior tableteado o microperforado.",
+    colors: "Colores Externos: Blanco, Cincalum,  Color Interno: Blanco",
+    cores: ["LRM"],
+    thickness: "80mm y 100mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Ignicold_LRM_GLT.rar"],
+    technicalSheet: ["/fichas/paredes-muros/ignicold.pdf"],
+    productImages: [
+      "/images/products/Ignicold/productImages/Ignicold_1.jpg",
+      "/images/products/Ignicold/productImages/Ignicold_2.jpg",
+      "/images/products/Ignicold/productImages/Ignicold_3.jpg",
+      "/images/products/Ignicold/productImages/Ignicold_4.jpg",
+      "/images/products/Ignicold/productImages/Ignicold_5.jpg",
+      "/images/products/Ignicold/productImages/Ignicold_6.jpg",
+    ],
+    inSituationImages: [
+      "/images/products/Ignicold/inSituationImages/Ignicold_1.jpg",
+      "/images/products/Ignicold/inSituationImages/Ignicold_2.jpg",
+      "/images/products/Ignicold/inSituationImages/Ignicold_3.jpg",
+      "/images/products/Ignicold/inSituationImages/Ignicold_4.jpg",
+      "/images/products/Ignicold/inSituationImages/Ignicold_5.jpg",
+      "/images/products/Ignicold/inSituationImages/Ignicold_6.jpg",
+    ],
+  },
+  {
+    id: 10,
+    category: "Construcción",
+    subcategory: "Pisos y Entrepisos",
+    title: "Panel de entrepiso",
+    description:
+      "Panel con núcleo térmico aislante firmemente adherido en su cara inferior a una chapa galvanizada y a dos perfiles metálicos laterales. Este conjunto se consolida como un material compuesto de gran resistencia y estabilidad, adaptable a todo tipo de construcciones: industriales, comerciales y residenciales.",
+    useCases: "Entrepiso",
+    features: [
+      "panel de entrepiso modular autoportante con núcleo térmico aislante",
+    ],
+    shaped: "liso.",
+    colors: null,
+    cores: ["PIR"],
+    thickness: "120mm",
+    bimBlock: ["https://grupoltn.com/productos-bim/Entrepiso_LTN.rar"],
+    technicalSheet: [
+      "/fichas/pisos-entrepisos/PANEL_ENTREPISO_PUR_en_baja.pdf",
+    ],
+    productImages: [
+      "/images/products/Panel_de_entrepiso/productImages/Pisos-entrepisos-26.jpg",
+      "/images/products/Panel_de_entrepiso/productImages/Pisos-entrepisos-27.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 11,
+    category: "Refrigeración",
+    subcategory: "Cámaras frigoríficas",
+    title: "Cámaras comerciales",
+    description:
+      "Nuestras Cámaras Standard de Baja o Media Tempratura  garantizan una excelente conservación de alimentos gracias a su robusta construcción y accesorios completos, facilitando su instalación y operación.",
+    useCases:
+      "Diseñadas para la conservación de alimentos refrigerados o congelados, fabricadas con materiales de primera calidad.",
+    features: [
+      "Se fabrican con paneles aislantes de PUR o EPS",
+      "Los muros pueden o no estar a la intemperie",
+      "El cielorraso requiere una cubierta para el exterior",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PUR", "EPS"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_1.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_2.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_3.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_4.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_5.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_6.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_7.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_8.jpg",
+      "/images/products/Camaras_standard/productImages/Camaras Comerciales_9.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 12,
+    category: "Refrigeración",
+    subcategory: "Cámaras frigoríficas",
+    title: "Cámaras Industriales",
+    description:
+      "Son recintos cerrados realizados con panel aislante frigorífico con encastre machimbrado. Los encuentros interiores se hacen con perfiles de 1/4 caña sanitario plástico o aluminio. Para el sellado se utiliza masilla butílica en el núcleo y sellador siliconado o poliuretánico en el exterior.",
+    useCases:
+      "Ideales para almacenar alimentos refrigerados o congelados, son fabricados con paneles Megacold desde 60 hasta 200mm.",
+    features: [
+      "Se fabrican con paneles aislantes de PIR o EPS",
+      "Los muros pueden o no estar a la intemperie",
+      "El cielorraso requiere una cubierta para el exterior",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PUR", "EPS"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-1.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-2.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-3.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-4.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-5.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-6.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-7.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-8.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-9.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-10.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-11.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-12.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Industriales-13.jpg",
+      "/images/products/Camaras_Industriales/productImages/Camaras Comerciales_14.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 13,
+    category: "Refrigeración",
+    subcategory: "Túneles de Congelado",
+    title: "Túneles de Congelado",
+    description:
+      "Son cámaras especiales que se usan para bajar rápidamente la temperatura en poco tiempo, logrando enfriar o congelar el producto. El mismo se ingresa en pallets o a través de un transporte contínuo.",
+    useCases:
+      "Tipos: refrigerados y congelados.   Funcionamiento: estático, californiano, doble envolvente, contínuo.",
+    features: [
+      "Los túneles son recintos alimentados por equipos split o centrales de frio.",
+    ],
+    shaped: null,
+    colors: null,
+    cores: [],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel5.jpg",
+      // "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel1.jpeg",
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel2.jpeg",
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel3.jpeg",
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel4.jpg",
+      // "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel6.jpg",
+      // "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel7.jpg",
+      // "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel8.jpg",
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel9.jpg",
+      "/images/products/Envolvente_de_paneles_aislantes/productImages/tunel10.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 14,
+    category: "Refrigeración",
+    subcategory: "Equipos comerciales",
+    title: "Equipo de frío",
+    description:
+      "Se trata de equipos de frío para alimentar una cámara con un evaporador. Son unidades de fácil y rápido montaje, con gran versatilidad de utilización. Puede ser para media o baja temperatura, compacto o split. Disponemos de equipos de alimentación trifásica o monofásica.",
+    useCases:
+      "En media temperatura: desde 1.5 hasta 7.5 HP. En baja temperatura: desde 1.5 hasta 10 HP.    Compacto o split, frio o calor. Son utilizados principalmente para cámaras de alimentos.",
+    features: [
+      "Chasis metálico abulonado",
+      "Compresor hermético o scroll",
+      "Condensador integrado en el chasis",
+      "Evaporador",
+      "Compacto o split",
+      "Comando a distancia",
+      "Gas R404A",
+    ],
+    shaped: null,
+    colors: null,
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: ["/fichas/equipos-comerciales/equipo comercial.pdf"],
+    productImages: [
+      "/images/products/Camaras_Comerciales/Equipos-Comerciales_01.jpg",
+      "/images/products/Camaras_Comerciales/Equipos-Comerciales_02.jpg",
+      "/images/products/Camaras_Comerciales/Equipos-Comerciales_03.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_2.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_3.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_4.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_7.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_8.jpg",
+      // "/images/products/Camaras_Comerciales/Camaras Comerciales_9.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 15,
+    category: "Refrigeración",
+    subcategory: "Equipos industriales",
+    title: "Equipo de frio",
+    description:
+      "Es un equipo de frío para alimentar una cámara con un evaporador. Para media o baja temperatura.",
+    useCases:
+      "En media temperatura: desde 10 hasta 15 HP.     En baja temperatura: desde 10 hasta 15 HP.    Compacto o split, frio o calor. El uso mayoritario es para cámaras de alimentos.",
+    features: [
+      "Chasis metálico abulonado",
+      "Compresor hermético o scroll",
+      "Condensador integrado en el chasis",
+      "Evaporador",
+      "Compacto o split",
+      "Comando a distancia",
+      "Gas R404A",
+    ],
+    shaped: null,
+    colors: null,
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: [
+      "/fichas/equipos-industriales/EQUIPOS INDUSTRIALES - BAJA TEMPERATURA.pdf",
+      "/fichas/equipos-industriales/EQUIPOS INDUSTRIALES -MEDIA TEMPERATURA.pdf",
+    ],
+    productImages: [
+      // "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-11.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-06.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-07.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-08.jpg",
+      // "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-09.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-3.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-4.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-5.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-6.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-7.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-8.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-9.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-10.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-12.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-13.jpg",
+      "/images/products/Equipo_de_frio_industriales/productImages/Equipo_Industriales-14.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 16,
+    category: "Refrigeración",
+    subcategory: "Minicentrales frigoríficas",
+    title: "Central de frio",
+    description:
+      "Es un equipo de frío para alimentar una cámara. Posee un condensador remoto y uno o más evaporadores. Para climatizado, media o baja temperatura.",
+    useCases:
+      "Para climatizado/media/baja temperatura: desde 20HP. El uso mayoritario es para cámaras de alimentos.",
+    features: [
+      "Chasis metálico",
+      "1 solo compresor semihermético",
+      "1 o más evaporadores",
+      "1 condensador remoto",
+      "Comando a distancia",
+      "Gas R404A",
+    ],
+    shaped: null,
+    colors: null,
+    cores: [],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: [
+      "/fichas/minicentrales-frigorificas/minicentrales frigorificas.pdf",
+    ],
+    productImages: [
+      "/images/products/Minicentrales_frigorificas/productImages/Minicentrales Frigoríficas-59.jpg",
+      "/images/products/Minicentrales_frigorificas/productImages/Minicentrales Frigoríficas-60.jpg",
+      "/images/products/Minicentrales_frigorificas/productImages/Minicentrales Frigoríficas-61.jpg",
+      "/images/products/Minicentrales_frigorificas/productImages/Minicentrales Frigoríficas-62.jpg",
+      "/images/products/Minicentrales_frigorificas/productImages/Minicentrales Frigoríficas-63.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 17,
+    category: "Refrigeración",
+    subcategory: "Centrales Multicompresoras",
+    title: "Central de frio",
+    description:
+      "Es un equipo de frío para alimentar una o varias cámaras. Posee uno o más condensadores remoto y uno o más evaporadores. Para climatizado, media o baja temperatura.",
+    useCases:
+      "Para climatizado/media/baja temperatura: desde 20HP. El uso mayoritario es para cámaras de alimentos.",
+    features: [
+      "Chasis metálico",
+      "Más de 1 compresor semihermético",
+      "1 o más evaporadores",
+      "1 o más condensadores remoto",
+      "Comando a distancia",
+      "Gas R404A",
+    ],
+    shaped: null,
+    colors: null,
+    cores: [],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Centrales_Multicompresoras/productImages/Centrales Multicompresoras-64.jpg",
+      "/images/products/Centrales_Multicompresoras/productImages/Centrales Multicompresoras-65.jpg",
+      "/images/products/Centrales_Multicompresoras/productImages/Centrales Multicompresoras-66.jpg",
+      "/images/products/Centrales_Multicompresoras/productImages/Centrales Multicompresoras-67.jpg",
+      "/images/products/Centrales_Multicompresoras/productImages/Centrales Multicompresoras-68.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 18,
+    category: "Refrigeración",
+    subcategory: "Chiller",
+    title: "Central de frio para enfriar agua",
+    description:
+      "Equipo de frio para enfriar un fluido (agua o glicol) a través de un intercambiador de calor. Posee un condensador remoto.",
+    useCases:
+      "Para media temperatura: desde 20HP. El uso mayoritario es para cámaras de alimentos.",
+    features: [
+      "Chasis metálico",
+      "Compresor hermético o semihermético",
+      "Intercambiador de placas",
+      "Condensador remoto",
+      "Comando a distancia",
+      "Gas R404A",
+    ],
+    shaped: null,
+    colors: null,
+    cores: [],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: ["/fichas/chiller/LTN-Ficha-Chiller-web.pdf"],
+    productImages: [
+      "/images/products/Chiller/productImages/Chillers-44.jpg",
+      "/images/products/Chiller/productImages/Chillers-45.jpg",
+      "/images/products/Chiller/productImages/Chillers-46.jpg",
+      "/images/products/Chiller/productImages/Chillers-47.jpg",
+      "/images/products/Chiller/productImages/Chillers-48.jpg",
+      "/images/products/Chiller/productImages/Chillers-49.jpg",
+      "/images/products/Chiller/productImages/Chillers-50.jpg",
+      "/images/products/Chiller/productImages/Chillers-51.jpg",
+      "/images/products/Chiller/productImages/Chillers-52.jpg",
+      "/images/products/Chiller/productImages/Chillers-53.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 19,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Puertas Levadizas",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Tronera, vai-ven, sanitaria, batiente media y baja temperatura, corrediza media y baja temperatura.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Puertas/productImages/Levadizas/P-Levadizas-1.jpg",
+      "/images/products/Puertas/productImages/Levadizas/P-Levadizas-2.jpg",
+      "/images/products/Puertas/productImages/Levadizas/P-Levadizas-3.jpg",
+      "/images/products/Puertas/productImages/Levadizas/P-Levadizas-4.jpg",
+      "/images/products/Puertas/productImages/Levadizas/P-Levadizas-5.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 20,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Puertas Batientes",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Tronera, vai-ven, sanitaria, batiente media y baja temperatura, corrediza media y baja temperatura.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: [
+      "/fichas/puertas-portones/Puerta-Frigorífica-Batiente.pdf",
+    ],
+    productImages: [
+      "/images/products/Puertas/productImages/Batientes/P-batiente-1.jpg",
+      "/images/products/Puertas/productImages/Batientes/P-batiente-2.jpg",
+      "/images/products/Puertas/productImages/Batientes/P-batiente-3.jpg",
+      "/images/products/Puertas/productImages/Batientes/P-batiente-4.jpg",
+      "/images/products/Puertas/productImages/Batientes/P-batiente-5.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 21,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Puertas Corredizas",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Tronera, vai-ven, sanitaria, batiente media y baja temperatura, corrediza media y baja temperatura.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Puertas/productImages/Corredizas/P.corrediza-1.jpg",
+      "/images/products/Puertas/productImages/Corredizas/P.corrediza-2.jpg",
+      "/images/products/Puertas/productImages/Corredizas/P.corrediza-3.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 22,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Puertas Sanitarias",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Tronera, vai-ven, sanitaria, batiente media y baja temperatura, corrediza media y baja temperatura.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Puertas/productImages/Sanitarias/P-Sanitarias-1.jpg",
+      "/images/products/Puertas/productImages/Sanitarias/P-Sanitarias-2.jpg",
+      "/images/products/Puertas/productImages/Sanitarias/P-Sanitarias-3.jpg",
+      "/images/products/Puertas/productImages/Sanitarias/P-Sanitarias-4.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 23,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Puertas Vaiven",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Tronera, vai-ven, sanitaria, batiente media y baja temperatura, corrediza media y baja temperatura.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Puertas/productImages/Vaiven/P-Vaiven-1.jpg",
+    ],
+    inSituationImages: null,
+  },
+  {
+    id: 24,
+    category: "Refrigeración",
+    subcategory: "Puertas y portones",
+    title: "Portones",
+    description:
+      "Son aberturas que se usan para el ingreso y egreso a las cámaras, salas y puntos de carga.",
+    useCases:
+      "Seccionales, cortinas rápidas. Rampa niveladora hidráulica, Abrigo retráctil.",
+    features: [
+      "Las hojas son inyectadas en poluiretano con un bastidor de aluminio",
+      "Las puertas frigoríficas llevan un burlete perimetral en la hoja y un marco con corte de puente térmico",
+    ],
+    shaped: "liso.",
+    colors: "blanco",
+    cores: ["PIR"],
+    thickness: null,
+    bimBlock: null,
+    technicalSheet: null,
+    productImages: [
+      "/images/products/Portones/productImages/Productos-1.jpg",
+      "/images/products/Portones/productImages/Productos-2.jpg",
+      "/images/products/Portones/productImages/Productos-3.jpg",
+      "/images/products/Portones/productImages/Productos-4.jpg",
+      "/images/products/Portones/productImages/Productos-5.jpg",
+      "/images/products/Portones/productImages/Productos-6.jpg",
+    ],
+    inSituationImages: null,
+  },
+];
