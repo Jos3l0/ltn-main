@@ -1,4 +1,4 @@
-import { products } from "../../products";
+import { products } from "../../../products";
 import toSlug from "@/lib/toSlug";
 
 export default function ProductPage({ params }) {
