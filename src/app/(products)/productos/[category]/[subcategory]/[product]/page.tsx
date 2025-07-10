@@ -1,7 +1,13 @@
 import { products } from "../../../products";
 import toSlug from "@/lib/toSlug";
 
-export default function ProductPage({ params }) {
+interface Params {
+  category: string;
+  subcategory: string;
+  product: string;
+}
+
+export default function ProductPage({ params }: { params: Params }) {
   const { category, subcategory, product } = params;
 
   const found = products.find(

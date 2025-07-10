@@ -31,9 +31,3 @@ const ProductGalleryCard = ({ product }: Props) => {
 };
 
 export default ProductGalleryCard;
-
-<ul>
-  {filteredProducts.map((product) => (
-    <ProductGalleryCard key={product.title} product={product} />
-  ))}
-</ul>;
