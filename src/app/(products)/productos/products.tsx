@@ -16,6 +16,7 @@ export const categories: Categories = {
     "Minicentrales frigoríficas",
     "Centrales Multicompresoras",
     "Chiller",
+    "Nueva subcategoria",
   ],
 } as const;
 
