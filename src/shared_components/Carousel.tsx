@@ -221,9 +221,9 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       className={cn(
-        "absolute",
+        "absolute z-20",
         orientation === "horizontal"
-          ? "-left-10 top-1/2 -translate-y-1/2"
+          ? "left-4 top-1/2 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
