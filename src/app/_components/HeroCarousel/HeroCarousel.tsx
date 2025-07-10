@@ -61,7 +61,7 @@ export const HeroCarousel = () => {
     <Carousel
       className="h-full w-full"
       opts={{ loop: true }}
-      plugins={[Autoplay({ delay: 3000, stopOnInteraction: false })]}
+      plugins={[Autoplay({ delay: 6000, stopOnInteraction: false })]}
     >
       <CarouselContent className="h-full">
         {slides.map((slide, index) => (
