@@ -1,3 +1,5 @@
+import { products } from "../../../products";
+
 export type Category = "Construcción" | "Refrigeración";
 
 export type Categories = {
