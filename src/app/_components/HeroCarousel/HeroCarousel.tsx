@@ -58,43 +58,45 @@ const slides = [
 
 export const HeroCarousel = () => {
   return (
-    <Carousel
-      className="h-full w-full"
-      opts={{ loop: true }}
-      plugins={[Autoplay({ delay: 6000, stopOnInteraction: false })]}
-    >
-      <CarouselContent className="h-full">
-        {slides.map((slide, index) => (
-          <CarouselItem key={index} className="relative h-screen">
-            <Image
-              src={slide.src}
-              alt={`Hero Image ${index + 1}`}
-              fill
-              className="h-full w-full object-cover"
-              priority={index === 0}
-            />
-            {/* Texto y botón superpuestos */}
-            <div className="absolute inset-0 flex flex-col justify-center px-4 md:px-24 h-full">
-              <h1 className="text-2xl md:text-5xl font-bold mb-2 whitespace-pre-line text-white drop-shadow-lg">
-                {slide.title}
-              </h1>
-              <p className="text-lg md:text-2xl mb-6 text-white drop-shadow-lg">
-                {slide.subtitle}
-              </p>
-              <div className="w-full flex justify-end">
-                <a
-                  href={slide.button.link}
-                  className="bg-white text-black px-6 py-2 shadow hover:bg-gray-100 transition rounded-none font-semibold"
-                >
-                  {slide.button.text}
-                </a>
+    <div className="relative h-full w-full">
+      <Carousel
+        className="h-full w-full"
+        opts={{ loop: true }}
+        plugins={[Autoplay({ delay: 6000, stopOnInteraction: false })]}
+      >
+        <CarouselContent className="h-full">
+          {slides.map((slide, index) => (
+            <CarouselItem key={index} className="relative h-screen">
+              <Image
+                src={slide.src}
+                alt={`Hero Image ${index + 1}`}
+                fill
+                className="h-full w-full object-cover"
+                priority={index === 0}
+              />
+              {/* Texto y botón superpuestos */}
+              <div className="absolute inset-0 flex flex-col justify-center px-4 md:px-24 h-full">
+                <h1 className="text-2xl md:text-5xl font-bold mb-2 whitespace-pre-line text-white drop-shadow-lg">
+                  {slide.title}
+                </h1>
+                <p className="text-lg md:text-2xl mb-6 text-white drop-shadow-lg">
+                  {slide.subtitle}
+                </p>
+                <div className="w-full flex justify-end">
+                  <a
+                    href={slide.button.link}
+                    className="bg-white text-black px-6 py-2 shadow hover:bg-gray-100 transition rounded-none font-semibold"
+                  >
+                    {slide.button.text}
+                  </a>
+                </div>
               </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
   );
 };
