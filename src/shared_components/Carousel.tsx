@@ -223,8 +223,8 @@ const CarouselPrevious = React.forwardRef<
       className={cn(
         "absolute z-20",
         orientation === "horizontal"
-          ? "right-4 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          ? "left-4 top-1/2 -translate-y-1/2"
+          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
@@ -237,7 +237,6 @@ const CarouselPrevious = React.forwardRef<
         width={35}
         height={35}
       />
-      {/* <ArrowLeftIcon className="h-4 w-4" /> */}
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -255,9 +254,9 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       variant={variant}
       className={cn(
-        "absolute",
+        "absolute z-20",
         orientation === "horizontal"
-          ? "-right-10 top-1/2 -translate-y-1/2"
+          ? "right-4 top-1/2 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
@@ -270,9 +269,7 @@ const CarouselNext = React.forwardRef<
         alt={"Slide siguiente"}
         width={35}
         height={35}
-        //className="fill-white"
       />
-      {/* <ArrowRightIcon className="h-4 w-4" /> */}
       <span className="sr-only">Next slide</span>
     </Button>
   );
